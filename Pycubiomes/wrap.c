@@ -1,11 +1,11 @@
 // check the biome at a block position
 //uwu
-#include "isvillage.c"
+#include "mclib.c"
 #include <stdio.h>
 #include <Python.h>
 #include <string.h>
 
-extern int cisvillage(long, int, int, int);
+extern int isvillage(long, int, int, int);
 
 static PyObject* pyisvillage(PyObject* self, PyObject* args)
 {
@@ -15,7 +15,7 @@ static PyObject* pyisvillage(PyObject* self, PyObject* args)
 	
 	if (!PyArg_ParseTuple(args, "liii", &seed, &xpos, &ypos, &zpos))
         	return NULL;
-	result = cisvillage( seed, xpos, ypos, zpos);
+	result = isvillage( seed, xpos, ypos, zpos);
 	
     return Py_BuildValue("i", result);
 
