@@ -1,6 +1,6 @@
 from distutils.core import setup, Extension
 
-module1 = Extension('overwold',
+module1 = Extension('isvillage',
                     sources = ['./Pycubiomes/wrap.c','./Pycubiomes/isvillage.c'],
                     #extra_objects = ['hello.o'],
                     )
