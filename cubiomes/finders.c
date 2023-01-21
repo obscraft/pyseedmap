@@ -1247,7 +1247,7 @@ L_feature:
         }
         else
         {   // In 1.18 village types are checked separtely...
-            const int vv[] = { plains, desert, savanna, taiga, snowy_tundra };
+            const int vv[] = { plains, desert, savanna, taiga, snowy_tundra, meadow, sunflower_plains, snowy_plains, snowy_taiga };
             size_t i;
             for (i = 0; i < sizeof(vv)/sizeof(int); i++) {
                 if (flags && flags != (uint32_t) vv[i])
