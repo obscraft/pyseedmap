@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 
-int cisVillage(long seed, int xpos, int ypos, int zpos)
+int isVillage(long seed, int xpos, int ypos, int zpos)
 {
     Generator g;
     setupGenerator(&g, MC_1_18, 0);
