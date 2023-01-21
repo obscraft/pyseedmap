@@ -1,7 +1,7 @@
 from distutils.core import setup, Extension
 
 module1 = Extension('isvillage',
-                    sources = ['./Pycubiomes/wrap.c','./Pycubiomes/isvillage.c'],
+                    sources = ['./Pycubiomes/wrap.c','./Pycubiomes/mclib.c'],
                     #extra_objects = ['hello.o'],
                     )
 
