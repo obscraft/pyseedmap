@@ -11,8 +11,11 @@ static PyObject* pyisvillage(PyObject* self, PyObject* args)
 {
 	long seed; 
 	int xpos, ypos, zpos;
-	int result
-	result = cisvillage( seed, xpos, ypos, zpos)
+	int result;
+	
+	if (!PyArg_ParseTuple(args, "liii", &seed, &xpos, &ypos, &zpos))
+        	return NULL;
+	result = cisvillage( seed, xpos, ypos, zpos);
 	
     return Py_BuildValue("i", result);
 
