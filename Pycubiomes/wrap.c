@@ -7,7 +7,7 @@
 static PyObject* isvillage(PyObject* self, PyObject* args)
 {
 	int xpos, ypos, zpos;
-	int64_t seed; 
+	long seed; 
     
     if(!PyArg_ParseTuple(args, "liii", &seed, &xpos, &ypos, &zpos))
         return NULL;
