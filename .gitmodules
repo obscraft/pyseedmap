@@ -1,3 +1,6 @@
 [submodule "test"]
   path = test
   url = https://github.com/Cubitect/cubiomes
+[submodule "cubiomes"]
+	path = cubiomes
+	url = https://github.com/Cubitect/cubiomes.git
