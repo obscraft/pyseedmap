@@ -8,39 +8,6 @@
 
 #include <stdio.h>
 
-
-int posToRegionx(int x1, int z1, int structType, int version){
-	
-	StructureConfig sconf=getConfig(structType, version);
-
-	int rx1;
-	if (sconf.regionSize == 32)
-        {
-            rx1 = floor(x1/512);
-        }
-    else
-        {
-            rx1 = (x1 * 16) - (x1 < 0);
-        }
-		return rx1;
-}
-int posToRegionz(int x1, int z1, int structType, int version){
-	
-	StructureConfig sconf=getConfig(structType, version);
-
-	int rz1;
-	if (sconf.regionSize == 32)
-        {
-
-            rz1 = floor(z1/512);
-
-        }
-    else
-        {
-            rz1 = (z1 * 16) - (z1 < 0);
-        }
-		return rz1;
-}
 int cBiomeAtPos(int biome, int64_t seed, int xpos, int zpos, int version)
 {
     LayerStack g;
@@ -92,92 +59,6 @@ Pos cGetSpawn(int64_t seed, int version){
 	pos=getSpawn(version, &g, NULL, seed);
 	return pos;
 }
-long findStructure(int structType, int x1, int z1, int x2, int z2, int version) //This function should not be used and was only here for testing purposes
-{
-
-    LayerStack g;
-    setupGenerator(&g, version);
-
-    int64_t lower48;
-    for (lower48 = 0; ; lower48++)
-    {
-        // The structure position depends only on the region coordinates and
-        // the lower 48-bits of the world seed.
-        Pos p;
-        if (!getStructurePos(structType, version, lower48, 0, 0, &p))
-            continue;
-
-        // Look for a seed with the structure at the origin chunk.
-        if (p.x >= x2 || p.z >= z2 || p.x<=x1 ||p.z<=z1)
-            continue;
-
-        // Look for a full 64-bit seed with viable biomes.
-        int64_t upper16;
-        for (upper16 = 0; upper16 < 0x10000; upper16++)
-        {
-            int64_t seed = lower48 | (upper16 << 48);
-            if (isViableStructurePos(structType, version, &g, seed, p.x, p.z))
-                return seed;
-            }
-        }
-    }
-
-
-Pos bruh;
-Pos structureLower48(int structType, long lower48, int x1, int z1, int x2, int z2, int version){
-
-	LayerStack g;
-    setupGenerator(&g, version);
-	
-	for(int regx=posToRegionx(x1, z1, structType, version); regx<=posToRegionx(x2, z2, structType, version); regx++){
-		for(int regz=posToRegionz(x1, z1, structType, version); regz<=posToRegionz(x2, z2, structType, version); regz++){
-			if (!getStructurePos(structType, version, lower48, regx, regz, &bruh)) break;
-
-			if (bruh.x >= x2 || bruh.z >= z2 || bruh.x<=x1 ||bruh.z<=z1) break;
-	
-			return bruh;
-			}
-	}
-bruh.x=30000000;
-return bruh;
-
-}
-long cIsViableStructurePos(int structType, int64_t seed,int structx, int structz, int version){
-	LayerStack g;
-    setupGenerator(&g, version);
-
-	return (long)isViableStructurePos(structType, version, &g, seed, structx, structz);
-
-		
-	}
-
-// find spawn and the first N strongholds
-Pos* holds;
-Pos* cgetStrongholds(int64_t seed, int N, int version)
-{
-    // Only the first stronghold has a position which can be estimated
-    // (+/-112 blocks) without biome check.
-	Pos Strongholds[N];
-    StrongholdIter sh;
-    Pos pos = initFirstStronghold(&sh, version, seed);
-	Strongholds[0]=pos;
-
-    LayerStack g;
-    setupGenerator(&g, version);
-    applySeed(&g, seed);
-
-
-
-    for (int i = 0; i < N; i++)
-    {
-        if (nextStronghold(&sh, &g, NULL) <= 0)
-            break;
-		Strongholds[i]=sh.pos;
-    }
-	holds=Strongholds;
-    return holds;
-}
-
 
 int cSaveMap(int64_t seed, int areaX, int areaZ, int areaWidth, int areaHeight, int scale, int version, char* filename)
 {
