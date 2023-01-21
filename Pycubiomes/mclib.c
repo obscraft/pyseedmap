@@ -40,9 +40,12 @@ int isvillage(long seed, int xpos, int ypos, int zpos)
     };
 };
 
-int isvillagecheck(int xpos, int zpos)
+int isvillagecheck(long seed, int xpos, int zpos)
 {
     Generator g;
+    setupGenerator(&g, MC_1_18, 0);
+    applySeed(&g, DIM_OVERWORLD, seed);
+	
     if (isViableStructurePos(Village, &g, xpos, zpos, 0)
     {
             rerurn 1;
