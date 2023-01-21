@@ -1,7 +1,7 @@
 from distutils.core import setup, Extension
 
 module1 = Extension('mclib',
-                    sources = ['./Pycubiomes/wrap.c'],
+                    sources = ['./pyseedmap/wrap.c'],
                     #extra_objects = ['hello.o'],
                     )
 
