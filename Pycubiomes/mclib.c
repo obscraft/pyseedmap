@@ -39,4 +39,17 @@ int isvillage(long seed, int xpos, int ypos, int zpos)
 	    return 0;
     };
 };
+
+int isvillagecheck(int xpos, int zpos)
+{
+    Generator g;
+    if (isViableStructurePos(Village, &g, xpos, zpos, 0)
+    {
+            rerurn 1;
+    };
+    else
+    {
+            return 0;
+    };
+};
     
