@@ -30,17 +30,17 @@ static PyMethodDef isvillagemethods[] = {
 
 
 // Module Definition Shit
-static struct PyModuleDef isvillage = {
+static struct PyModuleDef mclib = {
     PyModuleDef_HEAD_INIT,
-    "isvillage",
-    "is village?",
+    "mclib",
+    "lib for mcbe?",
     -1,
-    isvillagemethods
+   isvillagemethods
 };
 
-PyMODINIT_FUNC PyInit_isvillage(void)
+PyMODINIT_FUNC PyInit_mclib(void)
 {
-    return PyModule_Create(&isvillage);
+    return PyModule_Create(&mclib);
 }
 
 
