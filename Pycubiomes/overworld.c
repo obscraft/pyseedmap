@@ -29,5 +29,6 @@ int cBiomeAtPos(int biome, int64_t seed, int xpos, int ypos, int zpos)
     else
     {
 	    return 0;
-    };	    
+    };
+};
     
