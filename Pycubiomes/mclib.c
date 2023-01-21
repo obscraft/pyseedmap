@@ -30,7 +30,7 @@ int isvillage(long seed, int xpos, int ypos, int zpos)
     int scale = 1; // scale=1: block coordinates, scale=4: biome coordinates
     
     int biomeID = getBiomeAt(&g, scale, xpos, ypos, zpos);
-    if (biomeID == plains || biomeID == savanna || biomeID == taiga || biomeID == desert || biomeID == snowy_taiga || biomeID == sunflower_plains)
+    if (biomeID == meadow || biomeID == plains || biomeID == savanna || biomeID == taiga || biomeID == desert || biomeID == snowy_taiga || biomeID == sunflower_plains || biomeID == snowy_plains)
     {
 	    return 1;
     }
