@@ -6,13 +6,13 @@
 #include <string.h>
 static PyObject* pyBiomeAtPos(PyObject* self, PyObject* args)
 {
-	int biome, xpos, zpos, version;
+	int xpos, ypos, zpos;
 	long seed; 
     
-    if(!PyArg_ParseTuple(args, "iliii", &biome, &seed, &xpos, &zpos, &version))
+    if(!PyArg_ParseTuple(args, "liii", &seed, &xpos, &ypos, &zpos))
         return NULL;
 	
-    return Py_BuildValue("i", cBiomeAtPos(biome, seed, xpos, zpos, version));
+    return Py_BuildValue("i", cBiomeAtPos( seed, xpos, ypos, zpos));
 
 }
 PyDoc_STRVAR(biomeAtPos_doc, "biomeAtPos(biome, seed, xpos, zpos, version)->Bool\n\n\
