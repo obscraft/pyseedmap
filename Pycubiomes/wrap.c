@@ -5,14 +5,14 @@
 #include <Python.h>
 #include <string.h>
 
-extern int isvillage(long, int, int, int);
+extern int cisvillage(long, int, int, int);
 
-static PyObject* isvillage(PyObject* self, PyObject* args)
+static PyObject* pyisvillage(PyObject* self, PyObject* args)
 {
 	long seed; 
 	int xpos, ypos, zpos;
 	int result
-	result = isvillage( seed, xpos, ypos, zpos)
+	result = cisvillage( seed, xpos, ypos, zpos)
 	
     return Py_BuildValue("i", result);
 
@@ -20,7 +20,7 @@ static PyObject* isvillage(PyObject* self, PyObject* args)
 
 //meth>methods 
 static PyMethodDef isvillagemethods[] = {
-    { "isvillage", isvillage, METH_VARARGS},
+    { "isvillage", pyisvillage, METH_VARARGS},
     { NULL},
 };
 
