@@ -8,7 +8,7 @@
 #include "../cubiomes/noise.h"
 #include "../cubiomes/quadbase.h"
 
-#include "../cubiomes/biome_tree"
+#include "../cubiomes/biome_tree.c"
 #include "../cubiomes/finders.c"
 #include "../cubiomes/generator.c"
 #include "../cubiomes/layers.c"
