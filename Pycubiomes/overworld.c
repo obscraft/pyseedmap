@@ -27,7 +27,7 @@ int cBiomeAtPos(int biome, int64_t seed, int xpos, int ypos, int zpos)
     int scale = 1; // scale=1: block coordinates, scale=4: biome coordinates
     int x = 0, y = 63, z = 0;
     int biomeID = getBiomeAt(&g, scale, x, y, z);
-    if (biomeID == plains || biomeID == savanna || biomeID = taiga || biomeID == desert || biomeID == snowy_taiga || biome ID == sunflower_plains)
+    if (biomeID == plains || biomeID == savanna || biomeID == taiga || biomeID == desert || biomeID == snowy_taiga || biome ID == sunflower_plains)
     {
 	    return 1
 	    }
