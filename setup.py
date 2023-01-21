@@ -18,6 +18,6 @@ from setuptools import setup, find_packages, Extension
 setup(name = 'Pyubiomes', version = '0.2.0', description="a (probably bad wip) python wrapper for the C library Cubiomes", author="4gboframram", url="https://github.com/4gboframram/Pyubiomes",author_email="<zachawesomeness411@gmail.com>", long_description=long_desc, include_package_data=True,
 long_description_content_type='text/markdown',
 packages=find_packages(),
-ext_modules = [Extension('Pyubiomes.overworld', sources=['./Pyubiomes/wrap.c'])],
+ext_modules = [Extension('Pyubiomes.overworld', sources=['./pyseedmap/wrap.c'])],
 #package_data={'': ['searches.so']}
 )
