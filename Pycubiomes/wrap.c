@@ -6,6 +6,7 @@
 #include <string.h>
 
 extern int isvillage(long, int, int, int);
+extern int isvillagecheck(long, int, int);
 
 static PyObject* pyisvillage(PyObject* self, PyObject* args)
 {
@@ -21,9 +22,24 @@ static PyObject* pyisvillage(PyObject* self, PyObject* args)
 
 };
 
+static PyObject* pyisvillagecheck(PyObject* self, PyObject* args)
+{
+	long seed; 
+	int xpos, zpos;
+	int result;
+	
+	if (!PyArg_ParseTuple(args, "lii", &seed, &xpos, &zpos))
+        	return NULL;
+	result = isvillagecheck( seed, xpos, zpos);
+	
+    return Py_BuildValue("i", result);
+
+};
+
 //meth>methods 
 static PyMethodDef isvillagemethods[] = {
     { "isvillage", pyisvillage, METH_VARARGS},
+    { "isvillagecheck", pyisvillagecheck, METH_VARARGS},
     { NULL},
 };
 
@@ -33,7 +49,7 @@ static PyMethodDef isvillagemethods[] = {
 static struct PyModuleDef mclib = {
     PyModuleDef_HEAD_INIT,
     "mclib",
-    "lib for mcbe?",
+    "lib for mcbe",
     -1,
    isvillagemethods
 };
