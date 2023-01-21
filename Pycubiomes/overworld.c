@@ -13,7 +13,6 @@ int cBiomeAtPos(int biome, int64_t seed, int xpos, int ypos, int zpos)
 {
     Generator g;
     setupGenerator(&g, MC_1_18, 0);
-    Pos pos = {xpos,zpos}; // block position to be checked
 
     // Apply the seed to the generator for the Overworld dimension.
     applySeed(&g, DIM_OVERWORLD, seed);
