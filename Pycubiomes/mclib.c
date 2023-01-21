@@ -6,6 +6,12 @@
 #include "../cubiomes/util.h"
 #include "../cubiomes/noise.h"
 #include "../cubiomes/quadbase.h"
+#include "../cubiomes/finders.c"
+#include "../cubiomes/generator.c"
+#include "../cubiomes/layers.c"
+#include "../cubiomes/util.c"
+#include "../cubiomes/noise.c"
+#include "../cubiomes/quadbase.c"
 
 #include <stdio.h>
 
