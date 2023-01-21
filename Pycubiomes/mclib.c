@@ -1,11 +1,14 @@
 // check the biome at a block position
 
+#include "../cubiomes/rng.h"
 #include "../cubiomes/finders.h"
 #include "../cubiomes/generator.h"
 #include "../cubiomes/layers.h"
 #include "../cubiomes/util.h"
 #include "../cubiomes/noise.h"
 #include "../cubiomes/quadbase.h"
+
+#include "../cubiomes/biome_tree"
 #include "../cubiomes/finders.c"
 #include "../cubiomes/generator.c"
 #include "../cubiomes/layers.c"
