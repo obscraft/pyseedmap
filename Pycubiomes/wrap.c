@@ -12,7 +12,7 @@ static PyObject* isvillage(PyObject* self, PyObject* args)
     if(!PyArg_ParseTuple(args, "liii", &seed, &xpos, &ypos, &zpos))
         return NULL;
 	
-    return Py_BuildValue("i", cisvillage( seed, xpos, ypos, zpos));
+    return Py_BuildValue("i", isvillage( seed, xpos, ypos, zpos));
 
 };
 
