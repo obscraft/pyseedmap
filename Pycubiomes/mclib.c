@@ -48,7 +48,7 @@ int isvillagecheck(long seed, int xpos, int zpos)
 	
     if (isViableStructurePos(Village, &g, xpos, zpos, 0))
     {
-            rerurn 1;
+            return 1;
     };
     else
     {
