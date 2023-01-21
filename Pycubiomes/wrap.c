@@ -1,10 +1,10 @@
 // check the biome at a block position
 //uwu
-#include "overworld.c"
+#include "isvillage.c"
 #include <stdio.h>
 #include <Python.h>
 #include <string.h>
-static PyObject* pyBiomeAtPos(PyObject* self, PyObject* args)
+static PyObject* isvillage(PyObject* self, PyObject* args)
 {
 	int xpos, ypos, zpos;
 	long seed; 
@@ -14,31 +14,28 @@ static PyObject* pyBiomeAtPos(PyObject* self, PyObject* args)
 	
     return Py_BuildValue("i", cBiomeAtPos( seed, xpos, ypos, zpos));
 
-}
-PyDoc_STRVAR(biomeAtPos_doc, "biomeAtPos(biome, seed, xpos, zpos, version)->Bool\n\n\
-Returns True if the [biome] biome is at position (xpos, zpos). Otherwise returns False");
+};
 
 //meth>methods 
-static PyMethodDef methods[] = {
-    { "biome_at_pos", (PyCFunction) pyBiomeAtPos, METH_VARARGS, biomeAtPos_doc
-	},
-    { NULL, NULL, 0, NULL }
+static PyMethodDef isvillagemethods[] = {
+    { "isvillage", isvillage, METH_VARARGS},
+    { NULL},
 };
 
 
 
 // Module Definition Shit
-static struct PyModuleDef overworld = {
+static struct PyModuleDef isvillage = {
     PyModuleDef_HEAD_INIT,
-    "overworld",
-    "Search functions for Pyubiomes, a Python wrapper for cubiomes.",
+    "isvillage",
+    "is village?",
     -1,
-    methods
+    isvillagemethods
 };
 
-PyMODINIT_FUNC PyInit_overworld(void)
+PyMODINIT_FUNC PyInit_isvillage(void)
 {
-    return PyModule_Create(&overworld);
+    return PyModule_Create(&isvillage);
 }
 
 
