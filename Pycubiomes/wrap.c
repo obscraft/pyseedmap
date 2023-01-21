@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <Python.h>
 #include <string.h>
+
+extern int isvillage(long, int, int, int);
+
 static PyObject* isvillage(PyObject* self, PyObject* args)
 {
 	long seed; 
