@@ -25,14 +25,14 @@ int cBiomeAtPos(int biome, int64_t seed, int xpos, int ypos, int zpos)
 
     // To get the biome at a single block position, we can use getBiomeAt().
     int scale = 1; // scale=1: block coordinates, scale=4: biome coordinates
-    int x = 0, y = 63, z = 0;
-    int biomeID = getBiomeAt(&g, scale, x, y, z);
+    
+    int biomeID = getBiomeAt(&g, scale, xpos, ypos, zpos);
     if (biomeID == plains || biomeID == savanna || biomeID == taiga || biomeID == desert || biomeID == snowy_taiga || biomeID == sunflower_plains)
     {
-	    return 1
-	    }
+	    return 1;
+    }
     else
     {
-	    return 0
-	    }		    
+	    return 0;
+    };	    
     
