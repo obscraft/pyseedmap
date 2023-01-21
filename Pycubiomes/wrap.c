@@ -6,8 +6,8 @@
 #include <string.h>
 static PyObject* isvillage(PyObject* self, PyObject* args)
 {
-	int xpos, ypos, zpos;
 	long seed; 
+	int xpos, ypos, zpos;
 	
     return Py_BuildValue("i", isvillage( seed, xpos, ypos, zpos));
 
